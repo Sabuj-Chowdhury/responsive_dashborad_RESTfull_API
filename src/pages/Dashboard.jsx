@@ -3,7 +3,7 @@ import Sidebar from "../components/Sidebar";
 
 const Dashboard = () => {
   return (
-    <div>
+    <div className="flex">
       {/* sidebar */}
       <Sidebar></Sidebar>
       {/* outlet */}
