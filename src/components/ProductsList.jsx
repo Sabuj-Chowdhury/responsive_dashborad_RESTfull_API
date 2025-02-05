@@ -11,7 +11,7 @@ const ProductsList = () => {
     },
   });
 
-  console.log(products);
+  // console.log(products);
 
   if (isLoading) {
     return <div className="text-center font-bold h-screen">Loading ...</div>;
