@@ -3,7 +3,7 @@ import SectionTitle from "./SectionTitle";
 import axios from "axios";
 
 const ProductsList = () => {
-  const { data: products, isLoading } = useQuery({
+  const { data: products = [], isLoading } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
       const { data } = await axios.get("https://api.restful-api.dev/objects");

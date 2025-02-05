@@ -41,7 +41,7 @@ const Sidebar = () => {
         {/* links */}
         <div className="space-y-2">
           <NavLink
-            to="/"
+            to="/users"
             className={({ isActive }) =>
               `flex items-center gap-4 p-2 rounded hover:bg-blue-300  ${
                 isActive ? "bg-blue-400" : ""

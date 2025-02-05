@@ -1,6 +1,7 @@
 import axios from "axios";
 import SectionTitle from "./SectionTitle";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 
 const UsersList = () => {
   const { data: users = [], isLoading } = useQuery({
@@ -44,9 +45,11 @@ const UsersList = () => {
                 {user?.address?.city}
               </th>
               <th className="border border-gray-200 px-4 py-2">
-                <button className="bg-blue-500 hover:bg-blue-600 text-white px-2 py-3 rounded cursor-pointer w-max">
-                  View details
-                </button>
+                <Link to={`/user/${user?.id}`}>
+                  <button className="bg-blue-500 hover:bg-blue-600 text-white px-2 py-3 rounded cursor-pointer w-max">
+                    View details
+                  </button>
+                </Link>
               </th>
             </tbody>
           ))}
