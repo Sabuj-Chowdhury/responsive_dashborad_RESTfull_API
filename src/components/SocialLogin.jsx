@@ -17,7 +17,7 @@ const SocialLogin = () => {
     setLoading(true);
     try {
       await signInWithGoogle();
-      navigate("/users");
+      navigate("/");
       toast.success("Login Successful!");
     } catch (err) {
       console.log(err);

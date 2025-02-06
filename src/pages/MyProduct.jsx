@@ -13,7 +13,7 @@ const MyProduct = () => {
     queryKey: ["myProduct"],
     queryFn: async () => {
       const { data } = await axios.get(
-        `https://api.restful-api.dev/objects/ff808181932badb60194da43337e584d`
+        `https://api.restful-api.dev/objects/ff808181932badb60194da54113b585f`
       );
       return data;
     },
@@ -23,7 +23,7 @@ const MyProduct = () => {
   const handleDelete = async () => {
     try {
       await axios.delete(
-        `https://api.restful-api.dev/objects/ff808181932badb60194da43337e584d`
+        `https://api.restful-api.dev/objects/ff808181932badb60194da54113b585f`
       );
       refetch();
     } catch (err) {
