@@ -52,10 +52,10 @@ const UsersList = () => {
       <SectionTitle heading="user list"></SectionTitle>
       {/* search & sort  */}
       <div className="flex justify-center items-center my-5">
-        <div className="flex items-center justify-center gap-2 w-full md:w-7/12 sm:w-auto">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-2 w-full md:w-7/12 sm:w-auto">
           <select
             onChange={(e) => setSortData(e.target.value)}
-            className="bg-white border focus:outline-none border-gray-300  rounded-lg px-4 py-2 md:w-2/12 w-full sm:w-max"
+            className="bg-white border focus:outline-none border-gray-300  rounded-lg px-4 py-2 md:w-2/12 w-full "
           >
             <option value="">SortBy</option>
             <option value="name">Name</option>
@@ -68,15 +68,17 @@ const UsersList = () => {
             placeholder="search by name..."
             className="flex-grow border border-gray-300 rounded-l-lg px-4 py-2 focus:outline-none"
           />
-          <button className="bg-teal-600 text-white px-4 py-2 rounded-r-lg hover:bg-teal-700 transition cursor-pointer">
-            Search
-          </button>
-          <button
-            onClick={handleReset}
-            className="bg-black text-white px-4 py-2 rounded-r-lg cursor-pointer"
-          >
-            Reset
-          </button>
+          <div className="space-x-2">
+            <button className="bg-teal-600 text-white px-4 py-2 rounded-r-lg hover:bg-teal-700 transition cursor-pointer">
+              Search
+            </button>
+            <button
+              onClick={handleReset}
+              className="bg-black text-white px-4 py-2 rounded-r-lg cursor-pointer"
+            >
+              Reset
+            </button>
+          </div>
         </div>
       </div>
 
