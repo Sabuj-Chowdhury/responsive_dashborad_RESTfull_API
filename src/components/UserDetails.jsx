@@ -5,7 +5,7 @@ import SectionTitle from "./SectionTitle";
 
 const UserDetails = () => {
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
   const { data: userDetails = {}, isLoading } = useQuery({
     queryKey: ["userDetails", id],
     queryFn: async () => {

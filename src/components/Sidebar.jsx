@@ -1,12 +1,11 @@
 import { useContext, useState } from "react";
 import { BiLogOut } from "react-icons/bi";
-
 import { FaProductHunt, FaUsers } from "react-icons/fa";
 import {
   IoIosArrowDroprightCircle,
   IoIosArrowDropleftCircle,
 } from "react-icons/io";
-import { MdLogin } from "react-icons/md";
+import { MdLogin, MdOutlineMyLocation } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import AuthContext from "../Context/AuthContext";
 
@@ -63,7 +62,7 @@ const Sidebar = () => {
         {/* links */}
         <div className="space-y-2">
           <NavLink
-            to="/users"
+            to="/"
             className={({ isActive }) =>
               `flex items-center gap-4 p-2 rounded hover:bg-blue-300  ${
                 isActive ? "bg-blue-400" : ""
@@ -83,6 +82,31 @@ const Sidebar = () => {
           >
             <FaProductHunt size={28} />
             <span className={`${isCollapse && "hidden"}`}> Products</span>
+          </NavLink>
+          {/* <NavLink
+            to="/add-products"
+            className={({ isActive }) =>
+              `flex items-center gap-4 p-2 rounded hover:bg-blue-300 ${
+                isActive ? "bg-blue-400" : ""
+              }`
+            }
+          >
+            <IoMdAddCircle size={28} />
+
+            <span className={`${isCollapse && "hidden"}`}> Add Product</span>
+          </NavLink> */}
+
+          <NavLink
+            to="/my-product"
+            className={({ isActive }) =>
+              `flex items-center gap-4 p-2 rounded hover:bg-blue-300 ${
+                isActive ? "bg-blue-400" : ""
+              }`
+            }
+          >
+            <MdOutlineMyLocation size={28} />
+
+            <span className={`${isCollapse && "hidden"}`}> My Product</span>
           </NavLink>
         </div>
 
