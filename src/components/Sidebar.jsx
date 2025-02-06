@@ -4,6 +4,7 @@ import { FaProductHunt, FaUsers } from "react-icons/fa";
 import {
   IoIosArrowDroprightCircle,
   IoIosArrowDropleftCircle,
+  IoMdAddCircle,
 } from "react-icons/io";
 import { MdLogin, MdOutlineMyLocation } from "react-icons/md";
 import { NavLink } from "react-router-dom";
@@ -84,7 +85,7 @@ const Sidebar = () => {
             <span className={`${isCollapse && "hidden"}`}> Products</span>
           </NavLink>
           {/* for adding product */}
-          {/* <NavLink
+          <NavLink
             to="/add-products"
             className={({ isActive }) =>
               `flex items-center gap-4 p-2 rounded hover:bg-blue-300 ${
@@ -95,7 +96,7 @@ const Sidebar = () => {
             <IoMdAddCircle size={28} />
 
             <span className={`${isCollapse && "hidden"}`}> Add Product</span>
-          </NavLink> */}
+          </NavLink>
 
           <NavLink
             to="/my-product"
