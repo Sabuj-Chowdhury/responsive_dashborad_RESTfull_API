@@ -2,12 +2,17 @@ import { useQuery } from "@tanstack/react-query";
 import SectionTitle from "./SectionTitle";
 import axios from "axios";
 import { useState } from "react";
-
+import { FaTrashAlt } from "react-icons/fa";
+// import Swal from "sweetalert2";
 const ProductsList = () => {
   const [search, setSearch] = useState("");
   const [sortData, setSortData] = useState("");
 
-  const { data: products = [], isLoading } = useQuery({
+  const {
+    data: products = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
       const { data } = await axios.get("https://api.restful-api.dev/objects");
@@ -32,6 +37,39 @@ const ProductsList = () => {
     setSearch("");
     setSortData("");
   };
+
+  // Delete product
+  const handleDelete = async (id) => {
+    console.log(id);
+    try {
+      // api call to delete
+      await axios.delete(`https://api.restful-api.dev/objects/${id}`);
+
+      refetch();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  // const handleCustomDelete = (id) => {
+  //   Swal.fire({
+  //     title: "Are you sure?",
+  //     text: "You won't be able to revert this!",
+  //     icon: "warning",
+  //     showCancelButton: true,
+  //     confirmButtonColor: "#3085d6",
+  //     cancelButtonColor: "#d33",
+  //     confirmButtonText: "Yes, delete it!",
+  //   }).then((result) => {
+  //     if (result.isConfirmed) {
+  //       handleDelete(id);
+  //       Swal.fire({
+  //         title: "Deleted!",
+  //         text: "Product has successfully been deleted.",
+  //         icon: "success",
+  //       });
+  //     }
+  //   });
+  // };
 
   // console.log(products);
 
@@ -164,6 +202,14 @@ const ProductsList = () => {
                   ) : (
                     "Not Available"
                   )}
+                </th>
+                <th className="border border-gray-200 px-4 py-2">
+                  <button
+                    onClick={() => handleDelete(product?.id)}
+                    className="bg-red-500 hover:bg-red-600 text-white px-2 py-2 rounded cursor-pointer w-max"
+                  >
+                    <FaTrashAlt /> Delete
+                  </button>
                 </th>
               </tbody>
             ))}
