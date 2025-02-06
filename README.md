@@ -12,10 +12,9 @@ This project is a **responsive admin dashboard** that integrates with a **RESTfu
 - [Dependencies](#dependencies)
 - [Configuration](#configuration)
 - [Deployment](#deployment)
+- [API Limitations](#api-limitations)
 - [API Endpoints](#api-endpoints)
 - [Troubleshooting](#troubleshooting)
-- [Contributors](#contributors)
-- [License](#license)
 
 ## Installation
 
@@ -56,11 +55,20 @@ To run the project locally, follow these steps:
   - A **sidebar** for navigation.
   - A **main content area** displaying users and products.
 - Users can:
+
   - View a list of users fetched from `https://jsonplaceholder.typicode.com/users`.
   - View a list of products fetched from `https://api.restful-api.dev/objects`.
   - Add a new product using a **POST** request.
   - Retrieve a single product by ID.
   - Delete a product.
+
+## Product Addition & Retrieval
+
+- The API does not return a predictable product ID when adding a new product, making dynamic retrieval difficult.
+- Even if an extra key-value pair (e.g., `productID: 100`) is included, the API does not allow fetching the product using that key.
+- Instead, the API generates an auto-assigned ID that cannot be accessed through request parameters.
+- To work around this, a static ID from the API response (`https://api.restful-api.dev/objects/ff808181932badb60194da54113b585f`) is used which can you get in console.
+- Since the server does not allow modifications to the response format, obtaining the correct product ID dynamically is not feasible.
 
 ## Features
 
@@ -101,6 +109,11 @@ This project uses the following dependencies:
 This project is **deployed on Firebase** and can be accessed at:
 
 👉 **[Live Demo](https://dashboard-27d70.web.app/)**
+
+## API Limitations
+
+- The API has a limit of **100 requests per day**, which restricted further testing and demonstration of the full functionality in the deployed version.
+- Even after adding a product via `POST https://api.restful-api.dev/objects`, it will only return 13 objects from `GET https://api.restful-api.dev/objects`.
 
 ## API Endpoints
 
