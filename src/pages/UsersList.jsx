@@ -1,8 +1,9 @@
 import axios from "axios";
-import SectionTitle from "./SectionTitle";
+
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import SectionTitle from "../components/SectionTitle";
 
 const UsersList = () => {
   const [search, setSearch] = useState("");

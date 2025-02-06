@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import SectionTitle from "./SectionTitle";
+import SectionTitle from "../components/SectionTitle";
 
 const UserDetails = () => {
   const { id } = useParams();
